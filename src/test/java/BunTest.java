@@ -11,44 +11,32 @@ public class BunTest {
 
     @Before
     public void setUp() {
-        // Стаб данных для булочки
-        bun = new Bun("Булочка", 35);
+        bun = new Bun("Bun", 35);
     }
 
     @Test
     public void testBunConstructor() {
-        // Проверяем правильную инициализацию полей
-        assertEquals("Булочка", bun.getName());
+        assertEquals("Bun", bun.getName());
         assertEquals(35, bun.getPrice(), 0.0);
     }
 
     @Test
     public void testGetName() {
-        // Проверяем метод получения имени
-        assertEquals("Булочка", bun.getName());
+        assertEquals("Bun", bun.getName());
     }
 
     @Test
     public void testGetPrice() {
-        // Проверяем метод получения цены
         assertEquals(35, bun.getPrice(), 0.0);
     }
 
-    // Используем моки для теста взаимодействия класса с другими объектами
     @Test
     public void testWithMock() {
-        // Создаем мок объекта Bun
         Bun mockBun = mock(Bun.class);
-
-        // Настраиваем его поведение
-        when(mockBun.getName()).thenReturn("Имитация");
+        when(mockBun.getName()).thenReturn("Imitation");
         when(mockBun.getPrice()).thenReturn(3.5F);
-
-        // Проверяем взаимодействие
-        assertEquals("Имитация", mockBun.getName());
-        assertEquals(3.5, mockBun.getPrice(), 0.0);
-
-        // Убедимся, что методы вызваны
+        assertEquals("Imitation", mockBun.getName());
+        assertEquals(3.5F, mockBun.getPrice(), 0.0);
         verify(mockBun).getName();
         verify(mockBun).getPrice();
     }
